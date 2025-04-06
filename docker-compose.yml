@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  sftp:
+    image: atmoz/sftp
+    container_name: syncwave_sftp
+    ports:
+      - "2222:22"
+    volumes:
+      - sftp_data:/home/syncwave/uploads
+    command: syncwave:1234:1001
+    restart: always
+
+volumes:
+  sftp_data:
